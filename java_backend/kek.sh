@@ -7,4 +7,4 @@ function lazyclone {
     cd $reponame;
 }
 lazyclone $1
-./gradlew package
+./gradlew build
