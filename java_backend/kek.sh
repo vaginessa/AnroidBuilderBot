@@ -7,3 +7,4 @@ function lazyclone {
     cd $reponame;
 }
 lazyclone $1
+ls -l
