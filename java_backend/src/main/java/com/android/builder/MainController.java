@@ -55,7 +55,10 @@ public class MainController {
     }
 
     private int runScript(String repoName) throws IOException, InterruptedException {
-        Process start = new ProcessBuilder("./build_apk.sh", repoName).start();
+        ProcessBuilder pb = new ProcessBuilder("./build_apk.sh", repoName);
+        pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        pb.redirectError(ProcessBuilder.Redirect.INHERIT);
+        Process start = pb.start();
         return start.waitFor();
     }
 
