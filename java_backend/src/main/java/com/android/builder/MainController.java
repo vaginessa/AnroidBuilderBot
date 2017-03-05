@@ -24,7 +24,8 @@ import java.util.regex.Pattern;
 public class MainController {
 
     @PostMapping
-    ResponseEntity<?> getApkRequest(@RequestParam("name") String url) {
+    ResponseEntity<?> getApkRequest(@RequestParam("url") String url) {
+        System.out.println("url is" + url);
         FileSystemResource apk;
         try {
             System.out.println("script runned");
