@@ -8,4 +8,4 @@ function lazyclone {
     cd $reponame;
 }
 lazyclone $1
-sudo ./gradlew build
+gradle build
