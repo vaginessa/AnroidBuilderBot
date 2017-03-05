@@ -63,7 +63,7 @@ public class MainController {
     }
 
     public FileSystemResource findApk(String apkRepo) throws IOException {
-        Pattern c = Pattern.compile("[a-zA-Z]+$");
+        Pattern c = Pattern.compile("[-0-9a-zA-Z]+$");
         Matcher matcher = c.matcher(apkRepo);
         matcher.find();
         String group = matcher.group();
