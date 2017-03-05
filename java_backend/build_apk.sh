@@ -8,4 +8,5 @@ function lazyclone {
     cd $reponame;
 }
 lazyclone $1
-gradle build
+chmod 777 ./gradlew
+./gradlew build
