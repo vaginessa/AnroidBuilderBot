@@ -31,7 +31,7 @@ public class MainController {
             System.out.println("script runned");
             int i = runScript(url);
 
-            System.out.println("exit code is");
+            System.out.println("exit code is " + i);
             if (i != 0) {
                 throw new IOException("retunr code non-zero");
             }
@@ -62,9 +62,10 @@ public class MainController {
         return start.waitFor();
     }
 
-    private FileSystemResource findApk(String apkRepo) throws IOException {
-        Pattern c = Pattern.compile(".+/[a-zA-Z]+$");
+    public FileSystemResource findApk(String apkRepo) throws IOException {
+        Pattern c = Pattern.compile("[a-zA-Z]+$");
         Matcher matcher = c.matcher(apkRepo);
+        matcher.find();
         String group = matcher.group();
         File f = new File(group);
 
@@ -75,7 +76,7 @@ public class MainController {
         return getApkInPath(absolutePath);
     }
 
-    private FileSystemResource getApkInPath(String p) throws IOException {
+    public FileSystemResource getApkInPath(String p) throws IOException {
         Path path = Paths.get(p);
         Optional<Path> first = Files.walk(path)
                 .filter(path1 -> {
