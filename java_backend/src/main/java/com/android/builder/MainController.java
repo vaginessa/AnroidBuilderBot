@@ -27,8 +27,10 @@ public class MainController {
     ResponseEntity<?> getApkRequest(@RequestParam("name") String url) {
         FileSystemResource apk;
         try {
+            System.out.println("script runned");
             int i = runScript(url);
 
+            System.out.println("exit code is");
             if (i != 0) {
                 throw new IOException("retunr code non-zero");
             }
